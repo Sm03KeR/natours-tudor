@@ -1,0 +1,48 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+ 
+html {
+    font-size: 62.5%; /*font-size ul default din brower = 16 , daca noi il punem la 62.5% asta inseamna 62.5% din 16px care este egal cu 10px (si in tot css ul o sa lucram in rem, => 2rem = 20px (1rem=10px, cat am pus default in tag ul html) de ex in situatia noastra)*/
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+
+    @include respond(tab-land) {  //intodeauna pun media query ul cel mai mare primul, pt ca daca il pun ultimul o sa se aplice aceleasi dimensiuni si celor de mai sus de ea in cod
+        font-size: 56.25%;   //1rem = 9px, 9/16 = 56.25%
+    }
+
+    @include respond(tab-port) {
+        font-size: 50%;   // 1rem = 8px, 8/16 = 50%
+    }
+
+    @include respond(phone) {
+        font-size: 50%;   //asta e @content din functia respond din _mixins.scsss
+    }
+
+
+
+    @include respond(big-desktop) { 
+        font-size: 85%;    //1rem = 12px, 12/16 = 75%
+    }
+}
+
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    /*font-size: 16px;*/
+    line-height: 1.7;
+    color: $color-grey-dark;
+    padding: 3rem;
+    overflow-x: hidden;
+
+    box-sizing: border-box;
+
+    @include respond(tab-port) {
+        padding: 0; 
+    }
+}

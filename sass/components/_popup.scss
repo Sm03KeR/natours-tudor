@@ -1,0 +1,153 @@
+.popup {
+    position: relative;
+
+    &__background {
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba($color-black, 0.8);
+        z-index:-1;
+        transition: all .5s;
+        opacity: 0;
+
+        @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {  //daca browser ul suporta prop date, atunci se aplica ce e mai jos, daca nu suporta se aplica ce am pus initial
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            background-color: rgba($color-black, 0.3);
+        }
+    }
+
+
+    &__content {
+        width: 65%;
+        height: auto;
+        background-color: $color-white;
+        box-shadow: 0 2rem 4rem rgba($color-black, .2);
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        border-radius: 3px;
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+        z-index: -1;
+        opacity: 0;
+        transition: all .5s;
+
+        @include respond(tab-land) {
+            display: flex;
+            flex-direction: column;
+            text-align: center; 
+        }
+
+        @include respond (phone) {
+            height: auto;
+            text-align: center; 
+        }
+    }
+
+    &__close {
+        border: none;
+        outline: none;
+        background-color: $color-white;
+        cursor: pointer;
+        font-size: 3rem;
+        color: $color-grey-dark-2;
+
+        position: absolute;
+        top: 2.5rem;
+        right: 2.5rem;
+
+        @include respond(tab-land) {
+            background-color: transparent;
+            font-size: 6rem;
+            color: $color-grey-dark-3;
+        }
+
+        @include respond (phone) {
+            background-color: $color-white;
+            cursor: pointer;
+            font-size: 3rem;
+            color: $color-grey-dark-2;
+        }
+    }
+
+    &__left {
+        width: 33.3333333%;
+
+        @include respond(tab-land) {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+        }
+    }
+
+    &__right {
+        width: 66.6666667%;
+        padding: 3rem 5rem;
+
+        @include respond(tab-land) {
+            width: 100%;
+        }
+
+        @include respond (phone) {
+            padding: 3rem 2rem 2rem 2rem;
+        }
+        
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+        height: 50%;
+        object-fit: cover;
+
+        @include respond(tab-land) {
+            width: 50%;
+   
+        }
+
+        @include respond (phone) {
+            display: none;
+        }
+    }
+
+    &__text {
+        font-size: 1.4rem;
+        margin-bottom: 4rem;
+
+
+        -moz-column-count: 2;
+        -moz-column-gap: 4rem;
+        -moz-column-rule: 1px solid $color-grey-dark-2;
+
+        column-count: 2;   //imparte text ul in 2
+        column-gap: 4rem;
+        column-rule: 1px solid $color-grey-dark-2;
+
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        -webkit-hyphens: auto;
+        hyphens: auto;  //desparete textul in silabe cand e nevoie
+
+        @include respond(tab-land) {
+            text-align: left;
+        }
+
+        @include respond (phone) {
+            column-count: 1;
+            text-align: left;
+        }
+    }
+    
+}
+
+.mobile__text {
+    @include respond (phone) {
+        display: none;
+    }
+}

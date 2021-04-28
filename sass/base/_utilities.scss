@@ -1,0 +1,74 @@
+.u-center-text {
+    text-align: center;
+}
+
+
+.u-margin-bottom-big {
+    margin-bottom: 8rem;
+
+    @include respond(tab-port) {
+        margin-bottom: 5rem !important;
+    }
+}
+
+.u-margin-bottom-medium {
+    margin-bottom: 4rem;
+
+    @include respond(tab-port) {
+        margin-bottom: 3rem !important;
+    }
+}
+
+.u-margin-bottom-small {
+    margin-bottom: 1.5rem;
+}
+
+.u-margin-top-big {
+    margin-top: 8rem;
+}
+.u-margin-top-medium {
+    margin-top: 4rem;
+}
+.u-margin-top-small {
+    margin-top: 2rem;
+}
+
+
+
+
+.navigation .hidden {   //la navigatie, lista
+    opacity: 1;
+    width: 100%;
+    z-index: 1500;
+}
+.scale {
+    transform: scale(80);  // la backgroundul navigatiei
+}
+
+
+body .open {   //la popup background
+    z-index: 3000;
+    opacity: 1;
+}
+body .open1 { //la popup content
+    z-index: 4000; 
+    opacity: 1;
+}
+
+
+.navigation__button .hidden1 {   //la linea din mijlocul butonul de navigatie
+    background-color: transparent;
+}
+
+.navigation__button .rotate1 {  //la a 3a linie din butonul de navigatie
+    top: 0rem;
+    transform: rotate(135deg);
+}
+
+
+.navigation__button .rotate2 {  //la prima linie din butonul de navigatie
+    top: 0rem;
+    transform: rotate(-135deg);
+}
+
+
